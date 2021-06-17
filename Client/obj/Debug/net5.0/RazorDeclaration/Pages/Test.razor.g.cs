@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Client.Shared
+namespace Client.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,8 @@ using Client.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/test")]
+    public partial class Test : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,20 +91,24 @@ using Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\Shared\NavMenu.razor"
+#line 10 "C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\Pages\Test.razor"
        
-    private bool collapseNavMenu = true;
+    private VirtualMachine vm = new ();
+    private string responseBody;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        vm.Name = "test";
+
+        var response = await Http.PostAsJsonAsync("api/HttpTrigger1", vm);
+
+        responseBody = await response.Content.ReadAsStringAsync();
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
     }
 }
 #pragma warning restore 1591

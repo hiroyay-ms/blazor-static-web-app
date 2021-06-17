@@ -630,3 +630,5 @@ C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\obj\Debug\
 C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\obj\Debug\net5.0\Client.dll
 C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\obj\Debug\net5.0\ref\Client.dll
 C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\obj\Debug\net5.0\Client.pdb
+C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\obj\Debug\net5.0\RazorDeclaration\Pages\Test.razor.g.cs
+C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\obj\Debug\net5.0\Razor\Pages\Test.razor.g.cs

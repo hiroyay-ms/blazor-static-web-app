@@ -1,0 +1,22 @@
+@page "/test"
+@inject HttpClient Http
+
+<h1>Test</h1>
+
+<p>
+    <span>@responseBody</span>
+</p>
+
+@code {
+    private VirtualMachine vm = new ();
+    private string responseBody;
+
+    protected override async Task OnInitializedAsync()
+    {
+        vm.Name = "test";
+
+        var response = await Http.PostAsJsonAsync("api/HttpTrigger1", vm);
+
+        responseBody = await response.Content.ReadAsStringAsync();
+    }
+}
