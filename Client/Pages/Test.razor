@@ -8,13 +8,19 @@
     <span>@responseBody</span>
 </p>
 
+<p>
+    <span>Parameter: @message</span>
+</p>
+
 @code {
     private VirtualMachine vm = new ();
     private string responseBody;
+    private string message;
 
     protected override async Task OnInitializedAsync()
     {
         vm.Name = "test";
+        message = vm.Name + " " + @config["Function_Key"];
 
         var response = await Http.PostAsJsonAsync("api/HttpTrigger1?code=" + @config["Function_Key"], vm);
 

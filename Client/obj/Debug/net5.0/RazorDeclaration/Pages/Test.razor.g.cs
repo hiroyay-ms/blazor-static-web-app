@@ -91,14 +91,16 @@ using Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 11 "C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\Pages\Test.razor"
+#line 15 "C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\Pages\Test.razor"
        
     private VirtualMachine vm = new ();
     private string responseBody;
+    private string message;
 
     protected override async Task OnInitializedAsync()
     {
         vm.Name = "test";
+        message = vm.Name + " " + @config["Function_Key"];
 
         var response = await Http.PostAsJsonAsync("api/HttpTrigger1?code=" + @config["Function_Key"], vm);
 
