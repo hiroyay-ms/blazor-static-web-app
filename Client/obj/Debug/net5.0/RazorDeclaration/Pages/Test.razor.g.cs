@@ -91,7 +91,7 @@ using Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\Pages\Test.razor"
+#line 11 "C:\Users\hiroyay\source\repos\hiroyay-ms\blazor-static-web-app\client\Pages\Test.razor"
        
     private VirtualMachine vm = new ();
     private string responseBody;
@@ -100,7 +100,7 @@ using Client.Shared;
     {
         vm.Name = "test";
 
-        var response = await Http.PostAsJsonAsync("api/HttpTrigger1", vm);
+        var response = await Http.PostAsJsonAsync("api/HttpTrigger1?code=" + @config["Function_Key"], vm);
 
         responseBody = await response.Content.ReadAsStringAsync();
     }
@@ -109,6 +109,7 @@ using Client.Shared;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.Extensions.Configuration.IConfiguration config { get; set; }
     }
 }
 #pragma warning restore 1591

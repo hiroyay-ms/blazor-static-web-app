@@ -4,6 +4,6 @@ using System.Text.Json.Serialization;
 public class VirtualMachine
 {
     [JsonInclude]
-    [JsonPropertyName("Name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; }
 }
